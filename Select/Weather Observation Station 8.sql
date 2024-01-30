@@ -12,9 +12,10 @@ Given a table STATION that holds data for five fields namely ID, CITY, STATE, NO
 | LONG_W      | NUMERIC    |
 +-------------+------------+
 
-Query the list of CITY names starting with vowels (i.e., a, e, i, o, or u) from STATION. Your result cannot contain duplicates.
+Query the list of CITY names from STATION which have vowels (i.e., a, e, i, o, and u) as both their first and last characters. Your result cannot contain duplicates.
 */
 --Solution
 
-SELECT DISTINCT CITY FROM STATION
-WHERE SUBSTRING(CITY,1,1) IN ('a','e','i','o','u');
+SELECT DISTINCT CITY FROM STATION 
+WHERE SUBSTRING(CITY,1,1) IN ('a','e','i','o','u')
+AND SUBSTRING(REVERSE(CITY),1,1) IN ('a','e','i','o','u');
